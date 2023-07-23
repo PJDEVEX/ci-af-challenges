@@ -1,17 +1,25 @@
+// Import necessary modules and components
 import css from './App.module.css';
 import Sidebar from './components/Sidebar';
-// import NavBarSimple from './components/NavBarSimple';
 import NavBarForm from './components/NavBarForm';
+import Content from './components/Content';
 
+// App component function
 function App() {
   return (
+    // Use className to apply CSS classes from App.module.css
     <div className={css.App}>
-      {/* { FunctionalComponets } */}
+      {/* Step 1: Render the Sidebar component */}
       <Sidebar />
-      {/* <NavBarSimple /> */}
+
+      {/* Step 2: Render the NavBarForm component */}
       <NavBarForm />
+
+      {/* Step 3: Render the Content component */}
+      <Content />
     </div>
   );
 }
 
+// Export the App component
 export default App;
