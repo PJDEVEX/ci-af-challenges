@@ -15,7 +15,9 @@ export class Content extends React.Component {
 
         // CMP-LC-challenge: step1 constructor set state
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            // Search chlng: step1: create new stat
+            posts: [],
         }
     }
 
@@ -24,6 +26,24 @@ export class Content extends React.Component {
         setTimeout(() => {
             this.setState({ isLoaded: true });
         }, 2000)
+        // Search chlng: step2: set state of post equal to savedPosts
+        this.setState(() => {
+            this.posts = savedPosts
+        })
+    }
+    //   Search chlng: step5: handleChange
+    handleChange = (event) => {
+        const inputText = event.target.value.toLowerCase()
+        console.log(inputText)
+        // Search chlng: step6: Filter the 'savedPosts' using 'name' and save it to 'filteredPosts'
+        const filteredposts = savedPosts.filter((posts) =>
+            posts.name.toLowerCase().includes(inputText)
+        );
+        // search chlng step7: set the stateof the post to filteredPosts
+        this.setState({
+            posts: filteredposts,
+            name: inputText, // search chlng: step8: Save the imput as "name" in state
+        })
     }
 
     render() {
@@ -32,6 +52,18 @@ export class Content extends React.Component {
                 {/* III. Title Bar */}
                 <div className={css.TitleBar}>
                     <h1>My Photo</h1>
+                    <form>
+                        {/* Search chlng step3: Create a form with a lable */}
+                        <label htmlFor='searchInput'>Search: </label>
+                        <input
+                            type='search'
+                            id='searchInput'
+                            placeholder='By Author'
+                            // Search chlng: step4: Add onChange event hadnler
+                            onChange={(event) => this.handleChange(event)}></input>
+                        {/* Search chlng: step4: state the number of matching found */}
+                        <h4>posts found: {this.state.posts.length}</h4>
+                    </form>
                 </div>
 
                 {/* IV. Search Results */}
