@@ -60,3 +60,4 @@ export class Content extends React.Component {
 
 // VII. Export the Content component
 export default Content;
+
