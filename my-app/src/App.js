@@ -3,6 +3,7 @@ import css from './App.module.css';
 import Sidebar from './components/Sidebar';
 import NavBarForm from './components/NavBarForm';
 import Content from './components/Content';
+import ContentHooks from './components/ContentHooks';
 
 // App component function
 function App() {
@@ -16,7 +17,9 @@ function App() {
       <NavBarForm />
 
       {/* Step 3: Render the Content component */}
-      <Content />
+      {/* <Content /> */}
+
+      < ContentHooks />
     </div>
   );
 }
